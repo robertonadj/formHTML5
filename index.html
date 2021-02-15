@@ -5,8 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="modernizr.js"></script>
+    <script src="app.js"></script>
 </head>
 <body>
-    
+    <form name="order" method="post" action="/submit">
+        <h1>Order Form</h1>
+
+        <div class="buttons">
+            <input type="submit" value="Submit Order">
+            <input type="submit" id="saveOrder" value="Save Order">
+        </div>
+    </form>
 </body>
 </html>
