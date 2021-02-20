@@ -94,6 +94,69 @@
             </ul>
         </fieldset>
 
+        <!-- criação da seção order details -->
+        <fieldset>
+            <legend>Order Details</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Code</th><th>Description</th><th>Qty</th><th>Price</th><th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            COMP001
+                            <input type="hidden" name="product_code" value="COMP001">
+                        </td>
+                        <td>The Ultimate Smartphone</td>
+                        <td>
+                            <input type="number" data-price="399.99" name="quantity" value="0" min="0" max="99" maxlength="2">
+                        </td>
+                        <td>$399.99</td>
+                        <td>
+                            <output name="item_total" class="item_total">$0.00</output>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            COMP002
+                            <input type="hidden" name="product_code" value="COMP002">
+                        </td>
+                        <td>The Ultimate Tablet</td>
+                        <td>
+                            <input type="number" data-price="499.99" name="quantity" value="0" min="0" max="99" maxlength="2">
+                        </td>
+                        <td>$499.99</td>
+                        <td>
+                            <output name="item_total" class="item_total">$0.00</output>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            COMP003
+                            <input type="hidden" name="product_code" value="COMP003">
+                        </td>
+                        <td>The Ultimate Netbook</td>
+                        <td>
+                            <input type="number" data-price="299.99" name="quantity" value="0" min="0" max="99" maxlength="2">
+                        </td>
+                        <td>$299.99</td>
+                        <td>
+                            <output name="item_total" class="item_total">$0.00</output>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">Order Total</td>
+                        <td>
+                            <output name="order_total" id="order_total">$0.00</output>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </fieldset>
 
 
 
