@@ -158,6 +158,38 @@
             </table>
         </fieldset>
 
+        <!-- criando a seção payment details do form -->
+        <fieldset>
+            <legend>Payment Details</legend>
+            <ul>
+                <li>
+                    <label class="required">
+                        <div>Name on Card</div>
+                        <input name="card_name" required>
+                    </label>
+                </li>
+                <li>
+                    <label class="required">
+                        <div>Credit Card No.</div>
+                        <input name="card_number" pattern="[0-9]{13-16}" maxlength="16" required title="13-16 digits, no spaces">
+                    </label>
+                </li>
+                <li>
+                    <label class="required">
+                        <div>Expiry Date</div>
+                        <input type="month" name="card_expiry" maxlength="7" placeholder="YYYY-MM" required value="2015-06">
+                    </label>
+                </li>
+                <li>
+                    <label class="required">
+                        <div>CVV2 No.</div>
+                        <input name="card_cvv2" class="cvv" maxlength="3" pattern="[0-9]{3}" required title="exactly 3 digits">
+                        <span>(Three digit code at back of card)</span>
+                    </label>
+                </li>
+            </ul>
+        </fieldset>
+
 
 
 
