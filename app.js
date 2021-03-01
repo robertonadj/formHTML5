@@ -41,6 +41,11 @@
         orderTotalMoney = '$0.00';
 
         for(; i<ln; i++) {
+            if(!!qtyFields[i].valueAsNumber) {
+                itemQty = qtyFields[i].valueAsNumber || 0;
+            } else {
+                itemQty = parseFloat(qtyFields[i].value) || 0;
+            }
     }
 };
 
