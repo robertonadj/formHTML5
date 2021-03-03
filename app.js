@@ -41,10 +41,33 @@
         orderTotalMoney = '$0.00';
 
         for(; i<ln; i++) {
+            // obtendo o valor dos campos de entrada de quantidade
             if(!!qtyFields[i].valueAsNumber) {
                 itemQty = qtyFields[i].valueAsNumber || 0;
             } else {
                 itemQty = parseFloat(qtyFields[i].value) || 0;
+            }
+
+                // obtendo os valores de preços usando atributos data
+                if(!!qtyFields[i].dataset) {
+                    itemPrice = parseFloat(qtyFields[i].dataset.price);
+                } else {
+                    itemPrice = parseFloat(qtyFields[i].getAttribute('data-price'));
+                }
+
+                itemTotal = itemQty * itemPrice;
+                itemTotalMoney = '$'+ formatMoney(itemTotal.toFixed(2));
+                orderTotal += itemTotal;
+                orderTotalMoney = '$'+ formatMoney(orderTotal.toFixed(2));
+
+                // exibindo totais atualizados usando o elemento output
+                if(!!totalFields[i].value) {
+                    totalFields[i].value = itemTotalMoney;
+                    orderTotalField.value = orderTotalMoney;
+                } else {
+                    totalFields[i].innerHTML = itemTotalMoney;
+                    orderTotalField.innerHTML = orderTotalMoney;
+                }
             }
     }
 };
@@ -62,8 +85,6 @@ var qtyListeners = function() {
 };
 
 qtyListeners();
-
-}
 
 window.addEventListener('load', init, false);
 
