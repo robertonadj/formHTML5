@@ -68,9 +68,10 @@
                     totalFields[i].innerHTML = itemTotalMoney;
                     orderTotalField.innerHTML = orderTotalMoney;
                 }
-            }
-    }
+        }
+    
 };
+
 
 calculateTotals();
 
