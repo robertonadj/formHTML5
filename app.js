@@ -87,6 +87,31 @@ var qtyListeners = function() {
 
 qtyListeners();
 
+var doCustomValidity = function(field, msg) {
+    if('setCustomValidity' in field) {
+        field.setCustomValidity(msg);
+    } else {
+        field.validationMessage = msg;
+    }
+};
+
+var validateForm = function() {
+    doCustomValidity(orderForm.name, '');
+    doCustomValidity(orderForm.password, '');
+    doCustomValidity(orderForm.confirm_password, '');
+    doCustomValidity(orderForm.card_name, '');
+
+    if(orderForm.name.value.length < 4) {
+        doCustomValidity(orderForm.name, 'Full name must be at least 4 characters long');
+    }
+
+    if(orderForm.password.value.length < 8) {
+        doCustomValidity(orderForm.password, 'Password must be at least 8 characters long');
+    }
+
+    // continuar aqui!!!!!!
+}
+
 window.addEventListener('load', init, false);
 
 })();
