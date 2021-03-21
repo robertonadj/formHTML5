@@ -109,8 +109,29 @@ var validateForm = function() {
         doCustomValidity(orderForm.password, 'Password must be at least 8 characters long');
     }
 
-    // continuar aqui!!!!!!
+    if(orderForm.password.value != orderForm.confirm_password.value) {
+        doCustomValidity(
+            orderForm.confirm_password,
+            'Confirm Password must match Password'
+        );
+    }
+
+    if(orderForm.card_name.value.length < 4) {
+        doCustomValidity(
+            orderForm.card_name,
+            'Name on Card must be at least 4 characters long'
+        );
+    }
+};
+
+orderForm.addEventListener('input', validateForm, false);
+orderForm.addEventListener('keyup', validateForm, false);
+
+var styleInvalidForm = function() {
+    orderForm.className = 'invalid';
 }
+
+orderForm.addEventListener('invalid', styleInvalidForm, true);
 
 window.addEventListener('load', init, false);
 
