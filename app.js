@@ -133,6 +133,11 @@ var styleInvalidForm = function() {
 
 orderForm.addEventListener('invalid', styleInvalidForm, true);
 
+Modernizr.load({
+    test: Modernizr.inputtypes.month,
+    nope: 'monthpicker.js'
+});
+
 window.addEventListener('load', init, false);
 
 })();
