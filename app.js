@@ -138,6 +138,52 @@ Modernizr.load({
     nope: 'monthpicker.js'
 });
 
+var getFieldLabel = function(field) {
+    if('labels' in field && field.labels.length > 0) {
+        return field.labels[0].innerText;
+    }
+
+    if(field.parentNode && field.parentNode.tagName.toLowerCase()=== 'label') {
+        return field.parentNode.innerText;
+    }
+
+    return '';
+}
+
+var submitForm = function(e) {
+    if(!saveBtnClicked) {
+        validateForm();
+        var i = 0,
+        ln = orderForm, length,
+        field,
+        errors = [],
+        errorFields = [],
+        errorMsg = '';
+
+        for(; i<ln; i++) {
+            field = orderForm[i];
+            if((!!field.validationMessage && field.validationMessage.length > 0) || (!!field.checkValidity && !field.checkValidity()))
+            {
+                errors.push(getFieldLabel(field)+': '+field.validationMessage);
+
+                errorFields.push(field);
+            }
+        }
+
+        if(errors.length > 0) {
+            e.preventDefault();
+
+            errorMsg = errors.join('\n');
+
+            alert('Please fix the following errors:\n'+errorMsg, 'Error');
+            orderForm.className = 'invalid';
+            errorFields[0].focus();
+        }
+    }
+};
+
+orderForm.addEventListener('submit', submitForm, false);
+
 window.addEventListener('load', init, false);
 
 })();
